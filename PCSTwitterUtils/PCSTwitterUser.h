@@ -17,6 +17,7 @@
 
 // Derived from properties
 @property (nonatomic, readonly) NSString *screenNameAt;
+@property (nonatomic, readonly) NSString *nameAndScreenNameAt;
 
 - (id)initWithAPIDictionary:(NSDictionary *)dictionary;
 

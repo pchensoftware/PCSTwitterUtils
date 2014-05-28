@@ -35,4 +35,8 @@
    return [@"@" stringByAppendingString:self.screenName];
 }
 
+- (NSString *)nameAndScreenNameAt {
+   return [NSString stringWithFormat:@"%@ %@", self.name, self.screenNameAt];
+}
+
 @end
