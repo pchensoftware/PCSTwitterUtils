@@ -26,7 +26,7 @@
 }
 
 + (NSString *)appURLToUserFromScreenName:(NSString *)screenName {
-   return [NSString stringWithFormat:@"twitter://user?mention=%@", screenName];
+   return [NSString stringWithFormat:@"twitter://user?screen_name=%@", screenName];
 }
 
 + (NSString *)appURLToPostWithInitialText:(NSString *)text {
