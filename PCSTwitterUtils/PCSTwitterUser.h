@@ -9,6 +9,12 @@
 
 @interface PCSTwitterUser : NSObject
 
+@property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSString *screenName;
+@property (nonatomic, strong) NSString *adescription;
+@property (nonatomic, strong) NSString *location;
+@property (nonatomic, strong) NSString *url;
 
+- (id)initWithAPIDictionary:(NSDictionary *)dictionary;
 
 @end

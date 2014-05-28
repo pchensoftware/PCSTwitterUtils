@@ -5,6 +5,7 @@
 //====================================================================================================
 
 #import "PCSTwitterTweet.h"
+#import "PCSTwitterUser.h"
 
 @interface PCSTwitterTweet()
 
@@ -14,9 +15,20 @@
 
 @implementation PCSTwitterTweet
 
++ (NSArray *)tweetsFromAPIResponse:(NSArray *)apiResponse {
+   NSMutableArray *tweets = [NSMutableArray array];
+   for (NSDictionary *dict in apiResponse) {
+      PCSTwitterTweet *tweet = [[PCSTwitterTweet alloc] initWithAPIResponse:dict];
+      [tweets addObject:tweet];
+   }
+   return tweets;
+}
+
 - (id)initWithAPIResponse:(NSDictionary *)response {
    if ((self = [self init])) {
-      
+      self.text = response[@"text"];
+      self.createdAt = [NSDate date];
+      self.user = [[PCSTwitterUser alloc] initWithAPIDictionary:response[@"user"]];
    }
    return self;
 }

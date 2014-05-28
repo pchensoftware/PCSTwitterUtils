@@ -5,10 +5,15 @@
 //====================================================================================================
 
 #import <Foundation/Foundation.h>
-
+#import "PCSTwitterUser.h"
 
 @interface PCSTwitterTweet : NSObject
 
+@property (nonatomic, strong) NSString *text;
+@property (nonatomic, strong) NSDate *createdAt;
+@property (nonatomic, strong) PCSTwitterUser *user;
+
++ (NSArray *)tweetsFromAPIResponse:(NSArray *)apiResponse;
 - (id)initWithAPIResponse:(NSDictionary *)response;
 
 @end

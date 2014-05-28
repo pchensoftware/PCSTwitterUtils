@@ -14,6 +14,17 @@
 
 @implementation PCSTwitterUser
 
+- (id)initWithAPIDictionary:(NSDictionary *)dictionary {
+   if ((self = [self init])) {
+      self.name = dictionary[@"name"];
+      self.screenName = dictionary[@"screen_name"];
+      self.adescription = dictionary[@"description"];
+      self.location = dictionary[@"location"];
+      self.url = dictionary[@"url"];
+   }
+   return self;
+}
+
 - (id)init {
    if ((self = [super init])) {
    }
