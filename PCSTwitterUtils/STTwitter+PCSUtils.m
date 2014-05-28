@@ -7,6 +7,7 @@
 #import "STTwitter+PCSUtils.h"
 
 static STTwitterAPI *_shared = nil;
+static STTwitterAPI *_sharedWithiOSAccount = nil;
 
 @implementation STTwitterAPI (PCSUtils)
 
@@ -16,6 +17,14 @@ static STTwitterAPI *_shared = nil;
 
 + (void)setShared:(STTwitterAPI *)shared {
    _shared = shared;
+}
+
++ (STTwitterAPI *)sharedWithiOSAccount {
+   return _sharedWithiOSAccount;
+}
+
++ (void)setSharedWithiOSAccount:(ACAccount *)account {
+   _sharedWithiOSAccount = [STTwitterAPI twitterAPIOSWithAccount:account];
 }
 
 @end

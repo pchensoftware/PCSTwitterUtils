@@ -12,4 +12,7 @@
 + (STTwitterAPI *)shared;
 + (void)setShared:(STTwitterAPI *)shared;
 
++ (STTwitterAPI *)sharedWithiOSAccount;
++ (void)setSharedWithiOSAccount:(ACAccount *)account;
+
 @end
