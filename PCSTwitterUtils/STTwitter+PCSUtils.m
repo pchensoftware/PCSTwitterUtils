@@ -1,14 +1,21 @@
 //====================================================================================================
 // Author: Peter Chen
 // Created: 5/27/14
-// Copyright 2014 Peter Chen
+// Copyright 2014 Hidoodle
 //====================================================================================================
 
-#import <Foundation/Foundation.h>
+#import "STTwitter+PCSUtils.h"
 
+static STTwitterAPI *_shared = nil;
 
-@interface PCSTwitterTweet : NSObject
+@implementation STTwitterAPI (PCSUtils)
 
-- (id)initWithAPIResponse:(NSDictionary *)response;
++ (STTwitterAPI *)shared {
+   return _shared;
+}
+
++ (void)setShared:(STTwitterAPI *)shared {
+   _shared = shared;
+}
 
 @end

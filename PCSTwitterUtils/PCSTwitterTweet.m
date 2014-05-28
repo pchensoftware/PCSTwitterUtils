@@ -14,6 +14,13 @@
 
 @implementation PCSTwitterTweet
 
+- (id)initWithAPIResponse:(NSDictionary *)response {
+   if ((self = [self init])) {
+      
+   }
+   return self;
+}
+
 - (id)init {
    if ((self = [super init])) {
    }
