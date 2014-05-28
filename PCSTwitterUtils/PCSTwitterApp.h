@@ -11,7 +11,9 @@
 
 + (BOOL)openAppToScreenName:(NSString *)screenName;
 + (BOOL)openAppToTweetID:(NSString *)tweetID;
++ (BOOL)openAppToHashtag:(NSString *)hashtag;
 + (NSString *)siteURLFromScreenName:(NSString *)screenName;
 + (NSString *)siteURLFromScreenName:(NSString *)screenName tweetID:(NSString *)tweetID;
++ (NSString *)siteURLFromHashtag:(NSString *)hashtag;
 
 @end

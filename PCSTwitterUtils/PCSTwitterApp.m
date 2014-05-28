@@ -26,6 +26,11 @@
    return [[UIApplication sharedApplication] openURL:url];
 }
 
++ (BOOL)openAppToHashtag:(NSString *)hashtag {
+   NSURL *url = [[PCSTwitterApp appURLToHashtag:hashtag] toUrl];
+   return [[UIApplication sharedApplication] openURL:url];
+}
+
 + (NSString *)appURLToUserFromScreenName:(NSString *)screenName {
    return [NSString stringWithFormat:@"twitter://user?screen_name=%@", screenName];
 }
@@ -39,7 +44,11 @@
 }
 
 + (NSString *)appURLToSearchString:(NSString *)searchString {
-   return [NSString stringWithFormat:@"twitter://search?query=%@", searchString];
+   return [NSString stringWithFormat:@"twitter://search?query=%@", [searchString st_stringByAddingRFC3986PercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (NSString *)appURLToHashtag:(NSString *)hashtag {
+   return [self appURLToSearchString:[@"#" stringByAppendingString:hashtag]];
 }
 
 + (NSString *)siteURLFromScreenName:(NSString *)screenName {
@@ -48,6 +57,14 @@
 
 + (NSString *)siteURLFromScreenName:(NSString *)screenName tweetID:(NSString *)tweetID {
    return [NSString stringWithFormat:@"http://www.twitter.com/%@/status/%@", screenName, tweetID];
+}
+
++ (NSString *)siteURLForSearch:(NSString *)searchText {
+   return [NSString stringWithFormat:@"http://www.twitter.com/search?q=%@", [searchText st_stringByAddingRFC3986PercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+}
+
++ (NSString *)siteURLFromHashtag:(NSString *)hashtag {
+   return [self siteURLForSearch:[@"#" stringByAppendingString:hashtag]];
 }
 
 - (id)init {
