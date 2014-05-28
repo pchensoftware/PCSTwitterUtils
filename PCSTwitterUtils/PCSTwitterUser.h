@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, strong) NSString *url;
 
+// Derived from properties
+@property (nonatomic, readonly) NSString *screenNameAt;
+
 - (id)initWithAPIDictionary:(NSDictionary *)dictionary;
 
 @end

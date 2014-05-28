@@ -31,4 +31,8 @@
    return self;
 }
 
+- (NSString *)screenNameAt {
+   return [@"@" stringByAppendingString:self.screenName];
+}
+
 @end
