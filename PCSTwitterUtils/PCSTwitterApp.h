@@ -9,7 +9,9 @@
 
 @interface PCSTwitterApp : NSObject
 
-+ (BOOL)openTwitterAppToScreenName:(NSString *)screenName;
-+ (NSString *)twitterSiteURLFromScreenName:(NSString *)screenName;
++ (BOOL)openAppToScreenName:(NSString *)screenName;
++ (BOOL)openAppToTweetID:(NSString *)tweetID;
++ (NSString *)siteURLFromScreenName:(NSString *)screenName;
++ (NSString *)siteURLFromScreenName:(NSString *)screenName tweetID:(NSString *)tweetID;
 
 @end

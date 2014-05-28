@@ -16,13 +16,14 @@
 
 @implementation PCSTwitterApp
 
-+ (BOOL)openTwitterAppToScreenName:(NSString *)screenName {
++ (BOOL)openAppToScreenName:(NSString *)screenName {
    NSURL *url = [[PCSTwitterApp appURLToUserFromScreenName:screenName] toUrl];
-   if ([[UIApplication sharedApplication] canOpenURL:url]) {
-      [[UIApplication sharedApplication] openURL:url];
-      return YES;
-   }
-   return NO;
+   return [[UIApplication sharedApplication] openURL:url];
+}
+
++ (BOOL)openAppToTweetID:(NSString *)tweetID {
+   NSURL *url = [[PCSTwitterApp appURLToTweetWithIDStr:tweetID] toUrl];
+   return [[UIApplication sharedApplication] openURL:url];
 }
 
 + (NSString *)appURLToUserFromScreenName:(NSString *)screenName {
@@ -41,8 +42,12 @@
    return [NSString stringWithFormat:@"twitter://search?query=%@", searchString];
 }
 
-+ (NSString *)twitterSiteURLFromScreenName:(NSString *)screenName {
++ (NSString *)siteURLFromScreenName:(NSString *)screenName {
    return [NSString stringWithFormat:@"http://www.twitter.com/%@", screenName];
+}
+
++ (NSString *)siteURLFromScreenName:(NSString *)screenName tweetID:(NSString *)tweetID {
+   return [NSString stringWithFormat:@"http://www.twitter.com/%@/status/%@", screenName, tweetID];
 }
 
 - (id)init {
