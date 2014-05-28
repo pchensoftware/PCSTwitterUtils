@@ -26,6 +26,7 @@
 
 - (id)initWithAPIResponse:(NSDictionary *)response {
    if ((self = [self init])) {
+      self.idStr = response[@"id_str"];
       self.text = response[@"text"];
       self.createdAt = [NSDate date];
       self.user = [[PCSTwitterUser alloc] initWithAPIDictionary:response[@"user"]];

@@ -9,6 +9,7 @@
 
 @interface PCSTwitterTweet : NSObject
 
+@property (nonatomic, strong) NSString *idStr;
 @property (nonatomic, strong) NSString *text;
 @property (nonatomic, strong) NSDate *createdAt;
 @property (nonatomic, strong) PCSTwitterUser *user;
