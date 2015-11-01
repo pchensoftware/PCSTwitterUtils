@@ -17,17 +17,17 @@
 @implementation PCSTwitterApp
 
 + (BOOL)openAppToScreenName:(NSString *)screenName {
-   NSURL *url = [[PCSTwitterApp appURLToUserFromScreenName:screenName] toUrl];
+   NSURL *url = [NSURL URLWithString:[PCSTwitterApp appURLToUserFromScreenName:screenName]];
    return [[UIApplication sharedApplication] openURL:url];
 }
 
 + (BOOL)openAppToTweetID:(NSString *)tweetID {
-   NSURL *url = [[PCSTwitterApp appURLToTweetWithIDStr:tweetID] toUrl];
+   NSURL *url = [NSURL URLWithString:[PCSTwitterApp appURLToTweetWithIDStr:tweetID]];
    return [[UIApplication sharedApplication] openURL:url];
 }
 
 + (BOOL)openAppToHashtag:(NSString *)hashtag {
-   NSURL *url = [[PCSTwitterApp appURLToHashtag:hashtag] toUrl];
+   NSURL *url = [NSURL URLWithString:[PCSTwitterApp appURLToHashtag:hashtag]];
    return [[UIApplication sharedApplication] openURL:url];
 }
 
